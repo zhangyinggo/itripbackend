@@ -1,0 +1,16 @@
+cn\kgc\itrip\model\ItripHotelExtendProperty.class
+cn\kgc\itrip\model\ItripOrderLinkUser.class
+cn\kgc\itrip\model\ItripHotelTempStore.class
+cn\kgc\itrip\model\ItripHotelTradingArea.class
+cn\kgc\itrip\model\ItripAreaDic.class
+cn\kgc\itrip\model\ItripUserLinkUser.class
+cn\kgc\itrip\model\ItripLabelDic.class
+cn\kgc\itrip\model\ItripImage.class
+cn\kgc\itrip\model\ItripHotelRoom.class
+cn\kgc\itrip\model\ItripProductStore.class
+cn\kgc\itrip\model\ItripTradeEnds.class
+cn\kgc\itrip\model\ItripHotelOrder.class
+cn\kgc\itrip\model\ItripHotelFeature.class
+cn\kgc\itrip\model\ItripComment.class
+cn\kgc\itrip\model\ItripHotel.class
+cn\kgc\itrip\model\ItripUser.class

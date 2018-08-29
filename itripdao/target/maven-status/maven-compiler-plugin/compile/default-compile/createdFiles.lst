@@ -1,0 +1,16 @@
+cn\kgc\itrip\mapper\ItripImageMapper.class
+cn\kgc\itrip\mapper\ItripHotelMapper.class
+cn\kgc\itrip\mapper\ItripTradeEndsMapper.class
+cn\kgc\itrip\mapper\ItripUserMapper.class
+cn\kgc\itrip\mapper\ItripUserLinkUserMapper.class
+cn\kgc\itrip\mapper\ItripProductStoreMapper.class
+cn\kgc\itrip\mapper\ItripHotelExtendPropertyMapper.class
+cn\kgc\itrip\mapper\ItripHotelTempStoreMapper.class
+cn\kgc\itrip\mapper\ItripOrderLinkUserMapper.class
+cn\kgc\itrip\mapper\ItripHotelFeatureMapper.class
+cn\kgc\itrip\mapper\ItripLabelDicMapper.class
+cn\kgc\itrip\mapper\ItripHotelRoomMapper.class
+cn\kgc\itrip\mapper\ItripHotelOrderMapper.class
+cn\kgc\itrip\mapper\ItripAreaDicMapper.class
+cn\kgc\itrip\mapper\ItripHotelTradingAreaMapper.class
+cn\kgc\itrip\mapper\ItripCommentMapper.class
