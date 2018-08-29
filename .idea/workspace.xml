@@ -7,7 +7,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0b1b676-35a8-47a0-91d6-e4b74b0cf25f" name="Default" comment="" />
+    <list default="true" id="e0b1b676-35a8-47a0-91d6-e4b74b0cf25f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/itripbiz/target/" />
@@ -55,6 +58,9 @@
     <findStrings>
       <find>jedis</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -149,6 +155,7 @@
     <option name="width" value="1023" />
     <option name="height" value="581" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <flattenPackages ProjectPane="false" />
@@ -631,7 +638,7 @@
       <workItem from="1535339114303" duration="10212000" />
       <workItem from="1535416202416" duration="26997000" />
       <workItem from="1535503048147" duration="9552000" />
-      <workItem from="1535532366674" duration="612000" />
+      <workItem from="1535532366674" duration="1210000" />
     </task>
     <servers />
   </component>
@@ -668,7 +675,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47373000" />
+    <option name="totallyTimeSpent" value="47971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="34" y="113" width="1023" height="581" extended-state="0" />
@@ -690,7 +697,7 @@
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Run" order="4" weight="0.2580645" />
       <window_info anchor="bottom" id="Spring" order="1" />
       <window_info anchor="bottom" id="Terminal" order="9" />
