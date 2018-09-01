@@ -1,5 +1,7 @@
 package cn.kgc.itrip.service;
 
+import cn.kgc.itrip.common.DigestUtil;
+import cn.kgc.itrip.exception.ItripException;
 import cn.kgc.itrip.model.ItripUser;
 
 /**
@@ -15,4 +17,21 @@ public interface TokenService {
 
     //保存Token
     public void saveToken(String token , ItripUser itripUser);
+
+
+    //判断Token是否存在
+    Boolean exists(String token);
+
+    //删除
+    Boolean del (String  token);
+
+    //重置token
+    public String retoken(String token ,String userAgent) throws ItripException;
+
+    //验证token
+    Boolean validateToken(String token, String userAgent);
+
+
+
+
 }

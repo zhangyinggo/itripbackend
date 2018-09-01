@@ -25,6 +25,7 @@ public class ErrorCode {
 	public final static String AUTH_TOKEN_INVALID="30006";//token无效
 	public static final String AUTH_ILLEGAL_USERCODE = "30007";//非法的用户名
 	public static final String AUTH_LOGIN_FAILURE = "30008";//用户登录失败
+	public static final String AUTH_REGISTER_FAILURE = "30009";//用户注册失败
 
 	
 	/*认证模块错误码-end*/

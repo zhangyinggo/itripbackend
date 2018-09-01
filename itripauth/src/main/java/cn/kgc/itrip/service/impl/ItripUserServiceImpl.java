@@ -4,12 +4,10 @@ import cn.kgc.itrip.exception.ItripException;
 import cn.kgc.itrip.service.ItripUserService;
 import cn.kgc.itrip.mapper.ItripUserMapper;
 import cn.kgc.itrip.model.ItripUser;
+import com.cloopen.rest.sdk.CCPRestSmsSDK;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service("itripUserService")
 public class ItripUserServiceImpl implements ItripUserService {
@@ -17,6 +15,8 @@ public class ItripUserServiceImpl implements ItripUserService {
     @Resource
     private ItripUserMapper itripUserMapper;
 
+    @Resource
+    private RedisAPI redisAPI;
     public ItripUser getById(Long id)throws Exception{
         return itripUserMapper.getById(id);
     }
@@ -28,7 +28,7 @@ public class ItripUserServiceImpl implements ItripUserService {
     public Integer getCountByMap(Map<String,Object> param)throws Exception{
         return itripUserMapper.getCountByMap(param);
     }
-
+    //注册
     public Integer save(ItripUser itripUser)throws Exception{
             itripUser.setCreationDate(new Date());
             return itripUserMapper.save(itripUser);
@@ -84,6 +84,45 @@ public class ItripUserServiceImpl implements ItripUserService {
         List<ItripUser> itripUserList = getListByMap(param);
         return  itripUserList !=null && itripUserList.size()>0
                 ? itripUserList.get(0) : null;
+
     }
+
+
+    public ItripUser findByCode(String name) throws Exception{
+        ItripUser byUserCode = this.findByUserCode(name);
+         return  byUserCode;
+    }
+
+    public  void sendTemplateSMS(String to, String templateId, String[] datas){
+        HashMap<String, Object> result = null;
+        CCPRestSmsSDK restAPI = new CCPRestSmsSDK();
+        restAPI.init("app.cloopen.com", "8883");
+        // 初始化服务器地址和端口，生产环境配置成app.cloopen.com，端口是8883.
+        restAPI.setAccount("\n" +
+                "8aaf070865796a5701658d9bc2100fc9", "d6a3f31171124a44968563a680639408");
+        // 初始化主账号名称和主账号令牌，登陆云通讯网站后，可在控制首页中看到开发者主账号ACCOUNT SID和主账号令牌AUTH TOKEN。
+        restAPI.setAppId("8aaf070865796a5701658d9bc2650fcf");
+        // 请使用管理控制台中已创建应用的APPID。
+        result = restAPI.sendTemplateSMS(to,"1" ,datas);
+        System.out.println("SDKTestGetSubAccounts result=" + result);
+        if("000000".equals(result.get("statusCode"))){
+            //正常返回输出data包体信息（map）
+            HashMap<String,Object> data = (HashMap<String, Object>) result.get("data");
+            Set<String> keySet = data.keySet();
+            for(String key:keySet){
+                Object object = data.get(key);
+                System.out.println(key +" = "+object);
+            }
+        }else{
+            //异常返回输出错误码和错误信息
+            System.out.println("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
+        }
+    }
+public  void send(ItripUser itripUser) throws Exception {
+        itripUserMapper.save(itripUser);
+        Integer i = DigestUtil.randomCode();
+        this.sendTemplateSMS(itripUser.getUserCode(),"1",new String[]{String.valueOf(i),"1"});
+    redisAPI.set("action"+itripUser.getUserCode(),String.valueOf(i),100);
+}
 
 }

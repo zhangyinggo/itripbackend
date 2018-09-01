@@ -75,17 +75,20 @@
 
     <bean id="JedisPool" class="redis.clients.jedis.JedisPool">
         <constructor-arg ref="jedisPoolConfig"/>
-        <constructor-arg value="127.0.0.1"/>
-        <constructor-arg value="6379"/>
+        <constructor-arg value="${IP}"/>
+        <constructor-arg value="${DK}"/>
         <!--连接超时时长 单位 毫秒-->
-        <constructor-arg value="3000"/>
+        <constructor-arg value="${SJ}"/>
         <!--密码-->
-        <constructor-arg value="1234"/>
+        <constructor-arg value="${MM}"/>
     </bean>
 
     <bean id="redisAPI" class="cn.kgc.itrip.common.RedisAPI">
         <constructor-arg ref="JedisPool"/>
     </bean>
 
+    <bean id="validationUtil" class="cn.kgc.itrip.common.ValidationUtil">
+        <property name="redisAPI" ref="redisAPI"/>
+    </bean>
 
 </beans>

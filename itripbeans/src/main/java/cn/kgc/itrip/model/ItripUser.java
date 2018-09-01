@@ -38,6 +38,7 @@ public class ItripUser implements Serializable {
     private Integer activated;
 
 
+
     public void setId(Long id) {
         this.id = id;
     }

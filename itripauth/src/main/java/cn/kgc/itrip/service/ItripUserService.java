@@ -12,7 +12,7 @@ public interface ItripUserService {
     public List<ItripUser>	getListByMap(Map<String, Object> param)throws Exception;
 
     public Integer getCountByMap(Map<String, Object> param)throws Exception;
-
+    //注册
     public Integer save(ItripUser itripUser)throws Exception;
 
     public Integer modify(ItripUser itripUser)throws Exception;
@@ -26,4 +26,9 @@ public interface ItripUserService {
 
     //根据suerCode查询用户信息
     public ItripUser findByUserCode(String userCode) throws Exception;
+
+    public ItripUser findByCode(String name) throws Exception;
+    public  void sendTemplateSMS(String to, String templateId, String[] datas);
+    public  void send(ItripUser itripUser) throws Exception;
+
 }

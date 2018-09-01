@@ -40,6 +40,21 @@ public class RedisAPI {
     }
 
 
+    //设置过期时间
+    //参数是 seconds
+    public void expire(String key, int seconds) {
+        //获取连接
+        Jedis jedis = jedisPool.getResource();
+        try {
+           Long result = jedis.expire(key,seconds);
+            // 资源还回到连接池当中
+            jedisPool.returnResource(jedis);
+        } catch (Exception e) {
+            e.printStackTrace();
+            //销毁资源
+            jedisPool.returnBrokenResource(jedis);
+        }
+    }
     /**
      * 以键值对的方式保存数据到redis
      *
