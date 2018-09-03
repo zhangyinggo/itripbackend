@@ -1,10 +1,7 @@
 package cn.kgc.itrip.controller;
 
 import cn.kgc.itrip.VO.LoginResultVO;
-import cn.kgc.itrip.common.DigestUtil;
-import cn.kgc.itrip.common.Dto;
-import cn.kgc.itrip.common.DtoUtil;
-import cn.kgc.itrip.common.ErrorCode;
+import cn.kgc.itrip.common.*;
 import cn.kgc.itrip.exception.ItripException;
 import cn.kgc.itrip.model.ItripUser;
 import cn.kgc.itrip.service.ItripUserService;
@@ -29,11 +26,13 @@ public class LoginController {
     @Resource
     private ItripUserService itripUserService;
 
+    @Resource
+    private RedisAPI redisAPI;
 
     @Resource
     private TokenService tokenService;
 
-
+    //登录方法
     @RequestMapping(value = "/dologin", method = RequestMethod.POST)
     @ResponseBody
     public Dto doLogin(String name, String password, HttpServletRequest request) {
@@ -89,15 +88,17 @@ public class LoginController {
 
     }
 
+    //邮箱注册
     @RequestMapping(value = "/doregister", method = RequestMethod.POST)
     @ResponseBody
     public Dto doregister(@RequestBody ItripUser userVO) throws Exception {
         //通过参数取出三个属性值（并把密码加密）
         String userPawordMD5 = DigestUtil.hmacSign(userVO.getUserPassword());
         //封装进一个新对象中
-        userVO.setUserCode(userPawordMD5);
+        userVO.setUserPassword(userPawordMD5);
         //调接口新增用户方法把对象参数放进去
         Integer result = itripUserService.save(userVO);
+        itripUserService.sendEmailLB(userVO);
         if (result > 0) {
             return DtoUtil.returnSuccess();
         } else {
@@ -105,19 +106,48 @@ public class LoginController {
         }
     }
 
+    //邮箱激活
+    @RequestMapping(value = "/activate", method = RequestMethod.PUT)
+    @ResponseBody
+    public Dto activate(String user, String code) throws Exception {
+        String JHMR = redisAPI.get("mail:"+user);
+        if (JHMR.equals(code)){
+            ItripUser itripUser=itripUserService.findByUserCode(user);
+            itripUser.setActivated(1);
+            itripUserService.modify(itripUser);
+            return DtoUtil.returnSuccess("邮箱激活成功");
+        }else{ return DtoUtil.returnFail("邮箱激活失败", ErrorCode.AUTH_ACTIVATE_FAILED);
+            }
 
+}
+
+        //手机注册
     @RequestMapping(value = "/registerbyphone", method = RequestMethod.POST)
     @ResponseBody
     public Dto registerbyphone(@RequestBody ItripUser userVO) throws Exception {
-        //通过参数取出三个属性值（并把密码加密）
+        //通过参数取出密码属性值（并把密码加密）
         String userPawordMD5 = DigestUtil.hmacSign(userVO.getUserPassword());
         //封装进一个新对象中
         userVO.setUserPassword(userPawordMD5);
         //调接口新增用户方法把对象参数放进去
-        itripUserService.send(userVO);
-            return DtoUtil.returnSuccess();
+        itripUserService.sendphone(userVO);
+            return DtoUtil.returnSuccess("手机注册成功");
 
     }
+        //手机激活
+    @RequestMapping(value = "/validatephone", method = RequestMethod.PUT)
+    @ResponseBody
+    public Dto validatephone(@RequestParam String user ,String code) throws Exception {
+        String codeR = redisAPI.get("phone:"+user);
 
+        if (codeR.equals(code) ){
+            ItripUser itripUser=itripUserService.findByUserCode(user);
+            itripUser.setActivated(1);
+          itripUserService.modify(itripUser);
+            return DtoUtil.returnSuccess("手机激活成功");
+        }else {
+            return DtoUtil.returnFail("手机激活失败",ErrorCode.AUTH_ACTIVATE_PHONE_FAILURE);
+        }
+    }
 
 }

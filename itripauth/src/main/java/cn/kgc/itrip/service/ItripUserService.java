@@ -28,7 +28,14 @@ public interface ItripUserService {
     public ItripUser findByUserCode(String userCode) throws Exception;
 
     public ItripUser findByCode(String name) throws Exception;
-    public  void sendTemplateSMS(String to, String templateId, String[] datas);
-    public  void send(ItripUser itripUser) throws Exception;
+    //发短信激活码接口  参数1,手机号 2，模板号 3，数组含 随机激活码和“表达内容” 接口
+    public  void sendSMS(String to, String templateId, String[] datas);
+    //手机1，调新增方法 2，制作随机数 3，调发短信方法 4，拼接字符串存redis  接口
+    public  void sendphone(ItripUser itripUser) throws Exception;
+
+    //发邮件激活码接口
+    public void sendEmail(String email,String mailJHM)throws Exception;
+    //邮件
+    public void sendEmailLB(ItripUser itripUser) throws Exception;
 
 }

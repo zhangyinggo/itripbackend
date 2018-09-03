@@ -53,7 +53,7 @@ public class DigestUtil {
 	}
 
 	 public static int randomCode(){
-        return new Random().nextInt(9000)+1000;
+        return new Random().nextInt(90000)+10000;
     }
 
 	public static String toHex(byte input[]) {
