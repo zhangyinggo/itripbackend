@@ -24,6 +24,29 @@
         </trim>
     </select>
 
+    <select id="getlinkUserName" resultType="ItripUserLinkUser" parameterType="java.util.Map">
+        select
+        id as id,         <!--主键-->
+        linkUserName as linkUserName,         <!--常用联系人姓名-->
+        linkIdCard as linkIdCard,         <!--证件号码-->
+        linkPhone as linkPhone,         <!--常用联系人电话-->
+        userId as userId,         <!--用户id-->
+        creationDate as creationDate,         <!---->
+        createdBy as createdBy,         <!---->
+        modifyDate as modifyDate,         <!---->
+        modifiedBy as modifiedBy,         <!---->
+        linkIdCardType as linkIdCardType          <!--证件类型：(0-身份证，1-护照，2-学生证，3-军人证，4-驾驶证，5-旅行证)-->
+        from itrip_user_link_user
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="linkUserName != null and linkUserName!=''">
+                linkUserName like CONCAT('%',#{linkUserName},'%')
+            </if>
+            <if test="userId != null">
+                and userId=#{userId}
+            </if>
+        </trim>
+    </select>
+
     <select id="getListByMap" resultType="ItripUserLinkUser"
             parameterType="java.util.Map">
             select

@@ -18,4 +18,7 @@ public interface ItripUserLinkUserMapper {
 
 	public Integer removeById(@Param(value = "id") Long id)throws Exception;
 
+	//模糊查询常用联系人
+	public List<ItripUserLinkUser> getlinkUserName(ItripUserLinkUser itripUserLinkUser)throws Exception;
+
 }

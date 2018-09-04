@@ -1,5 +1,6 @@
 cn\kgc\itrip\common\Dto.class
 cn\kgc\itrip\common\BigDecimalUtil$1.class
+cn\kgc\itrip\exception\ItripException.class
 cn\kgc\itrip\common\DtoUtil.class
 cn\kgc\itrip\App.class
 cn\kgc\itrip\common\BigDecimalUtil.class
@@ -7,7 +8,9 @@ cn\kgc\itrip\common\Constants.class
 cn\kgc\itrip\common\DigestUtil.class
 cn\kgc\itrip\common\Page.class
 cn\kgc\itrip\common\UserAgentUtil.class
+cn\kgc\itrip\common\ValidationUtil.class
 cn\kgc\itrip\common\EmptyUtils.class
 cn\kgc\itrip\common\ErrorCode.class
 cn\kgc\itrip\common\PropertiesUtils.class
+cn\kgc\itrip\common\RedisAPI.class
 cn\kgc\itrip\common\BigDecimalUtil$BigDecimalOprations.class

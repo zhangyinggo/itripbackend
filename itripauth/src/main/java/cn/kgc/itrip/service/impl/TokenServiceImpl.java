@@ -81,7 +81,7 @@ public class TokenServiceImpl implements TokenService {
     public String retoken(String token, String userAgent) throws ItripException {
         //1,验证token是否有效
         if(!this.validateToken(token,userAgent))
-            throw new ItripException("token失效",ErrorCode.AUTH_TOKEN_INVALID);
+            throw new ItripException("token失效",ErrorCode.BIZ_TOKEN_INVALID);
         //2,能不能够置换，是否处于保护器
 
         try {
@@ -112,7 +112,7 @@ public class TokenServiceImpl implements TokenService {
             this.saveToken(newToken,user);
             return  newToken;
         }else {
-            throw new ItripException("token失效",ErrorCode.AUTH_TOKEN_INVALID);
+            throw new ItripException("token失效",ErrorCode.BIZ_TOKEN_INVALID);
         }
     }
 

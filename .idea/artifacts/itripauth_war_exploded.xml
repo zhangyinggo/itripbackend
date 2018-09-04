@@ -88,7 +88,7 @@
           <element id="library" level="project" name="Maven: cz.mallat.uasparser:uasparser:0.6.0" />
           <element id="library" level="project" name="Maven: net.sourceforge.jregex:jregex:1.2_01" />
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.1.0" />
-          <element id="library" level="project" name="Maven: www.yuntongxun.com:yun:2.6.3" />
+          <element id="library" level="project" name="Maven: www.yunSMS.com:yunSMS:2.6.3" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
         </element>
       </element>

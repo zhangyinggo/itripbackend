@@ -30,7 +30,7 @@
     <property name="os.name" value="Windows 7"/>
     <property name="classworlds.conf" value="D:\develop SOFT\MAVEN\apache-maven-3.5.2\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="GBK"/>
-    <property name="java.library.path" value="D:\develop SOFT\jdk1.8.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\Oracle\product\11.2.0\dbhome_1\bin;D:\develop SOFT\jdk1.8.0\bin;D:\develop SOFT\jdk1.8.0\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\MySQL\bin;D:\develop SOFT\MAVEN\apache-maven-3.5.2\bin;D:\develop SOFT\Git\cmd;C:\Users\Administrator.USER-20180323JQ\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.library.path" value="D:\develop SOFT\jdk1.8.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\Oracle\product\11.2.0\dbhome_1\bin;D:\develop SOFT\jdk1.8.0\bin;D:\develop SOFT\jdk1.8.0\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\MySQL\bin;D:\develop SOFT\MAVEN\apache-maven-3.5.2\bin;D:\Git\git2.8\Git\cmd;C:\Users\Administrator.USER-20180323JQ\AppData\Local\GitHubDesktop\bin;."/>
     <property name="maven.conf" value="D:\develop SOFT\MAVEN\apache-maven-3.5.2/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>

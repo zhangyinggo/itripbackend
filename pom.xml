@@ -391,11 +391,13 @@
             <version>2.1.0</version>
         </dependency>
         <!--redis end-->
+
         <dependency>
-            <groupId>www.yuntongxun.com</groupId>
-            <artifactId>yun</artifactId>
+            <groupId>www.yunSMS.com</groupId>
+            <artifactId>yunSMS</artifactId>
             <version>2.6.3</version>
         </dependency>
+
         <!--JavaMail相关依赖-->
         <dependency>
             <groupId>javax.mail</groupId>

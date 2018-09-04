@@ -13,4 +13,5 @@ cn\kgc\itrip\model\ItripHotelOrder.class
 cn\kgc\itrip\model\ItripHotelFeature.class
 cn\kgc\itrip\model\ItripComment.class
 cn\kgc\itrip\model\ItripHotel.class
+cn\kgc\itrip\VO\LoginResultVO.class
 cn\kgc\itrip\model\ItripUser.class

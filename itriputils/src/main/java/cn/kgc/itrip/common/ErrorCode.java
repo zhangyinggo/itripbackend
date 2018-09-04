@@ -20,14 +20,17 @@ public class ErrorCode {
 	public final static String AUTH_USER_ALREADY_EXISTS="30001";//用户已存在
 	public final static String AUTH_AUTHENTICATION_FAILED="30002";//认证失败
 	public final static String AUTH_PARAMETER_ERROR="30003";//用户名密码参数错误，为空
-	public final static String AUTH_ACTIVATE_FAILED="30004";//邮件注册，激活失败
+	public final static String AUTH_ACTIVATE_EMAIL_FAILED="30004";//邮件注册，激活失败
+	public final static String AUTH_ACTIVATE_PHONE_FAILED="30004";//手机注册，激活失败
 	public final static String AUTH_REPLACEMENT_FAILED="30005";//置换token失败
-	public final static String AUTH_TOKEN_INVALID="30006";//token无效
 	public static final String AUTH_ILLEGAL_USERCODE = "30007";//非法的用户名
 	public static final String AUTH_LOGIN_FAILURE = "30008";//用户登录失败
 	public static final String AUTH_REGISTER_FAILURE = "30009";//用户注册失败
-	public static final String AUTH_ACTIVATE_PHONE_FAILURE = "30010";//手机激活失败
 
+	public final static String BIZ_TOKEN_INVALID="100000";//token无效，请重新登
+	public final static String BIZ_USER_OFTEN_FAILED="100401";//获取常用联系人信息失败
+	public final static String BIZ_USER_OFTEN_DEL_FAILED="100403";//删除常用联系人失败
+	public final static String BIZ_USER_OFTEN_ADD_FAILED="100411";// 新增常用联系人失败
 
 	
 	/*认证模块错误码-end*/

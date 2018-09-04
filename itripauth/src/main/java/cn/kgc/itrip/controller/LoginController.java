@@ -66,7 +66,7 @@ public class LoginController {
         String token = request.getHeader("token");
         String userAgent = request.getHeader("user-agent");
         if (!tokenService.validateToken(token, userAgent)) {
-            return DtoUtil.returnFail("Token无效", ErrorCode.AUTH_TOKEN_INVALID);
+            return DtoUtil.returnFail("Token无效", ErrorCode.BIZ_TOKEN_INVALID);
         }
         //退出
         tokenService.del(token);
@@ -116,7 +116,7 @@ public class LoginController {
             itripUser.setActivated(1);
             itripUserService.modify(itripUser);
             return DtoUtil.returnSuccess("邮箱激活成功");
-        }else{ return DtoUtil.returnFail("邮箱激活失败", ErrorCode.AUTH_ACTIVATE_FAILED);
+        }else{ return DtoUtil.returnFail("邮箱激活失败", ErrorCode.AUTH_ACTIVATE_EMAIL_FAILED);
             }
 
 }
@@ -146,7 +146,7 @@ public class LoginController {
           itripUserService.modify(itripUser);
             return DtoUtil.returnSuccess("手机激活成功");
         }else {
-            return DtoUtil.returnFail("手机激活失败",ErrorCode.AUTH_ACTIVATE_PHONE_FAILURE);
+            return DtoUtil.returnFail("手机激活失败",ErrorCode.AUTH_ACTIVATE_PHONE_FAILED);
         }
     }
 
